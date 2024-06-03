@@ -17,7 +17,7 @@ import in.codetech.angulareducloud.portal.model.Role;
 import in.codetech.angulareducloud.portal.model.User;
 import in.codetech.angulareducloud.portal.model.UserRole;
 import in.codetech.angulareducloud.portal.service.UserService;
-//added by hasrhal
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
