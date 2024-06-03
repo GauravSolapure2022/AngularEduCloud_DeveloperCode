@@ -24,7 +24,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	//create User
+	//create User with there user details
 	@PostMapping("/")
 	public User addUser(@RequestBody User user) throws Exception {
 		//Entire role
@@ -42,20 +42,21 @@ public class UserController {
 		User createUser = this.userService.createUser(user, roles);
 		return createUser;
 	}
-	
-	//Get User
+	 
+	//Get User with given username
 	@GetMapping("/{username}")
 	public User retriveUserDetails(@PathVariable String username) {
 		User user = this.userService.getUser(username);
 		return user;
 	}
 	
-	//Delete User
-	@DeleteMapping("/{id}")
+	//Delete User with given id
+ 	@DeleteMapping("/{id}")
 	public void removeUser(@PathVariable long id) {
 		this.userService.deleteUser(id);
 	}
 	
+	//get all users details
 	@GetMapping("/")
 	public List<User> getAllUsers(){
 		List<User> allUsersDetails = this.userService.getAllUsersDetails();
