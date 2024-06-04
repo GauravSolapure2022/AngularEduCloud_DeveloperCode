@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import in.codetech.angulareducloud.portal.module.Exam.Category;
 import in.codetech.angulareducloud.portal.module.Exam.Quiz;
 import in.codetech.angulareducloud.portal.service.QuizService;
-//usercontroller
+//quizcontroller
 @RestController
 @RequestMapping("/quiz")
 public class QuizController {
