@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
 public class User {
+	//class is created 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
