@@ -3,7 +3,7 @@ package in.codetech.angulareducloud.portal.model;
 import org.springframework.security.core.GrantedAuthority;
 
 public class Authority implements GrantedAuthority {
-	
+	//authority
 	private String athority;
 	
 	
