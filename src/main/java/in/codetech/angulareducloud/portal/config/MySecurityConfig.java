@@ -21,6 +21,7 @@ import in.codetech.angulareducloud.portal.serviceImpl.UserDetailsServiceImpl;
 @EnableWebSecurity
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+//extend with a web security configure adapter
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
