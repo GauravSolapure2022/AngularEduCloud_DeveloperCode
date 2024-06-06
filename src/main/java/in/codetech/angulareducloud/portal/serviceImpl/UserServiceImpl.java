@@ -1,7 +1,6 @@
 package in.codetech.angulareducloud.portal.serviceImpl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import in.codetech.angulareducloud.portal.model.User;
 import in.codetech.angulareducloud.portal.model.UserRole;
 import in.codetech.angulareducloud.portal.repository.RoleRepository;
 import in.codetech.angulareducloud.portal.repository.UserRepository;
-import in.codetech.angulareducloud.portal.repository.UserRoleRepository;
 import in.codetech.angulareducloud.portal.service.UserService;
 
 @Service
@@ -25,7 +23,6 @@ public class UserServiceImpl implements UserService {
 	private RoleRepository roleRepository;
 
 	@Autowired
-	private UserRoleRepository userRoleRepository;
 	public User createUser(User user, Set<UserRole> userRoles)  {
 		User local = this.userRepository.findByUsername(user.getUsername());
 		if (local != null) {
