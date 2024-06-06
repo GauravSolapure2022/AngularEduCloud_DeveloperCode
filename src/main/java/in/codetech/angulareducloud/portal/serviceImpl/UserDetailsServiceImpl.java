@@ -3,6 +3,7 @@ package in.codetech.angulareducloud.portal.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Service;
 
 import in.codetech.angulareducloud.portal.Exception.UserNotFoundException;
 import in.codetech.angulareducloud.portal.model.User;
