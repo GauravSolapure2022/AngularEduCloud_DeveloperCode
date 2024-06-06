@@ -13,7 +13,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtUtils {
-
+    //Secret_key
 	private String SECRET_KEY = "examportal";
 
     public String extractUsername(String token) {
