@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import in.codetech.angulareducloud.portal.Exception.UserNotFoundException;
 import in.codetech.angulareducloud.portal.model.User;
 import in.codetech.angulareducloud.portal.repository.UserRepository;
-
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired
