@@ -2,8 +2,8 @@ package in.codetech.angulareducloud.portal.service;
 
 import java.util.Set;
 
-import in.codetech.angulareducloud.portal.module.Exam.Question;
-import in.codetech.angulareducloud.portal.module.Exam.Quiz;
+import in.codetech.angulareducloud.portal.model.Exam.Question;
+import in.codetech.angulareducloud.portal.model.Exam.Quiz;
 
 public interface QuestionService {
 	public Question addQuestion(Question question);
