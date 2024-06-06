@@ -4,7 +4,7 @@ import java.util.Set;
 
 import in.codetech.angulareducloud.portal.model.Exam.Question;
 import in.codetech.angulareducloud.portal.model.Exam.Quiz;
-
+//Question Service
 public interface QuestionService {
 	public Question addQuestion(Question question);
 
