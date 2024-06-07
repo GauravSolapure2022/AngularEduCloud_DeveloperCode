@@ -28,6 +28,7 @@ import in.codetech.angulareducloud.portal.serviceImpl.UserDetailsServiceImpl;
 @RestController
 @ControllerAdvice
 @CrossOrigin("*")
+//auth controller
 public class AuthenticateController {
 	
 	@Autowired
