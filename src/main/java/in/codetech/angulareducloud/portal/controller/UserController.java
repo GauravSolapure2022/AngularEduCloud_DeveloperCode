@@ -34,7 +34,7 @@ public class UserController {
 	public User addUser(@RequestBody User user) throws Exception {
 		// Entire role
 		Set<UserRole> roles = new HashSet<>();
-
+		
 		// setting the password values
 		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
 
