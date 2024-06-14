@@ -35,7 +35,7 @@ public class User implements UserDetails {
 	private boolean enabled = true;
 	private String profile;
 
-	
+	//edit by aditi
 	
 	//user has many roles
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
