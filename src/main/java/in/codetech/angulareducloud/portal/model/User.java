@@ -18,13 +18,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "users")
+//public class User implements UserDetails
 public class User implements UserDetails {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String username;
 	private String password;
 	private String firstName;
@@ -33,13 +34,24 @@ public class User implements UserDetails {
 	private String phone;
 	private boolean enabled = true;
 	private String profile;
-	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
-	@JsonIgnore
-	private Set<UserRole> userRoles=new HashSet<>();
 
-	public User(long id, String username, String password, String firstName, String lastName, String email,
-			String phone, boolean enabled, String profile, Set<UserRole> userRoles) {
+	
+	
+	//user has many roles
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	@JsonIgnore
+	private Set<UserRole> userRoles = new HashSet<>();
+	
+	
+	public User() {
+	
+	}
+	
+	
+	
+
+	public User(Long id, String username, String password, String firstName, String lastName, String email,
+			String phone, boolean enabled, String profile) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -50,19 +62,42 @@ public class User implements UserDetails {
 		this.phone = phone;
 		this.enabled = enabled;
 		this.profile = profile;
+	}
+
+
+    
+
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+
+
+
+	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+
+
+
+	public String getProfile() {
+		return profile;
 	}
 
-	public long getId() {
+
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+
+
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -122,32 +157,12 @@ public class User implements UserDetails {
 		this.enabled = enabled;
 	}
 
-	public String getProfile() {
-		return profile;
-	}
 
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
 
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", phone=" + phone + ", enabled=" + enabled
-				+ ", profile=" + profile + ", userRoles=" + userRoles + "]";
-	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
+		
 		Set<Authority> set = new HashSet<>();
 		this.userRoles.forEach(userRole -> {
 			set.add(new Authority(userRole.getRole().getRoleName()));
@@ -156,11 +171,17 @@ public class User implements UserDetails {
 		return set;
 	}
 
+
+
+
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+
+
 
 	@Override
 	public boolean isAccountNonLocked() {
@@ -168,10 +189,17 @@ public class User implements UserDetails {
 		return true;
 	}
 
+
+
+
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	
+	
+	
 
 }

@@ -1,4 +1,4 @@
-package in.codetech.angulareducloud.portal.model.Exam;
+ package in.codetech.angulareducloud.portal.model.exam;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

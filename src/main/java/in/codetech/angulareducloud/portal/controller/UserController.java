@@ -1,16 +1,17 @@
 package in.codetech.angulareducloud.portal.controller;
-
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,56 +21,63 @@ import in.codetech.angulareducloud.portal.model.User;
 import in.codetech.angulareducloud.portal.model.UserRole;
 import in.codetech.angulareducloud.portal.service.UserService;
 
+
+
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
+	
 	@Autowired
 	private UserService userService;
-
+	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-	// create User
+	
+	
+	//creating user
 	@PostMapping("/")
-	public User addUser(@RequestBody User user) throws Exception {
-		// Entire role
-		Set<UserRole> roles = new HashSet<>();
-
-		// setting the password values
+	public User createUser(@RequestBody User user) throws Exception {
+		
+		user.setProfile("default.png");
+		
+		//encoded password in BCryptpasswordEncoder
 		user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-
-		// setting for Entity Role
+		
+		Set<UserRole> roles = new HashSet<>();
+		
 		Role role = new Role();
 		role.setRoleId(14L);
 		role.setRoleName("NORMAL");
-
-		// setting values for userrole
+		
 		UserRole userRole = new UserRole();
 		userRole.setUser(user);
 		userRole.setRole(role);
-		// set then value in entire role
+		
 		roles.add(userRole);
-		User createUser = this.userService.createUser(user, roles);
-
-		return createUser;
+		
+		
+		return this.userService.createUser(user, roles);
 	}
-
-	// Get User
+	
+	//get user by username
 	@GetMapping("/{username}")
-	public User retriveUserDetails(@PathVariable String username) {
-		User user = this.userService.getUser(username);
-		return user;
+	public User getUser(@PathVariable("username") String username) {
+		
+		return this.userService.getUser(username);
+		
 	}
+	
+	//delete user by id
+	@DeleteMapping("/{userId}")
+	public void deleteUser(@PathVariable("userId") Long userId) {
+		this.userService.deleteUser(userId);
+		
+	}
+	
+	
+	
+	
+	
 
-	// Delete User
-	@DeleteMapping("/{id}")
-	public void removeUser(@PathVariable long id) {
-		this.userService.deleteUser(id);
-	}
-
-	@GetMapping("/")
-	public List<User> getAllUsers() {
-		List<User> allUsersDetails = this.userService.getAllUsersDetails();
-		return allUsersDetails;
-	}
 }

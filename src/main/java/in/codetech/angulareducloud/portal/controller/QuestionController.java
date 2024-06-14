@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.codetech.angulareducloud.portal.model.Exam.Question;
-import in.codetech.angulareducloud.portal.model.Exam.Quiz;
+import in.codetech.angulareducloud.portal.model.exam.Question;
+import in.codetech.angulareducloud.portal.model.exam.Quiz;
 import in.codetech.angulareducloud.portal.service.QuestionService;
 
 @RestController

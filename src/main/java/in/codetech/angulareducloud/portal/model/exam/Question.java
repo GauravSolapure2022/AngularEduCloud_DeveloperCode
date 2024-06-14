@@ -1,4 +1,4 @@
-package in.codetech.angulareducloud.portal.model.Exam;
+package in.codetech.angulareducloud.portal.model.exam;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,10 +27,10 @@ public class Question {
 	private String option3;
 	private String option4;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	private String answer;
 	
-	@Transient
+	//@Transient
 	private String givenAnswer;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

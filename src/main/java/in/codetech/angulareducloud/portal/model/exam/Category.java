@@ -1,4 +1,4 @@
-package in.codetech.angulareducloud.portal.model.Exam;
+package in.codetech.angulareducloud.portal.model.exam;
 
 
 import java.util.LinkedHashSet;
@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

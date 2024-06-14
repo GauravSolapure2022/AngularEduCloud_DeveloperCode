@@ -3,8 +3,8 @@ package in.codetech.angulareducloud.portal.service;
 import java.util.List;
 import java.util.Set;
 
-import in.codetech.angulareducloud.portal.model.Exam.Category;
-import in.codetech.angulareducloud.portal.model.Exam.Quiz;
+import in.codetech.angulareducloud.portal.model.exam.Category;
+import in.codetech.angulareducloud.portal.model.exam.Quiz;
 
 public interface QuizService {
 	public Quiz addQuiz(Quiz quiz);

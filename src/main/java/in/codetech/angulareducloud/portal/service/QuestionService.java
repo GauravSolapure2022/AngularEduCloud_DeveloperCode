@@ -2,8 +2,8 @@ package in.codetech.angulareducloud.portal.service;
 
 import java.util.Set;
 
-import in.codetech.angulareducloud.portal.model.Exam.Question;
-import in.codetech.angulareducloud.portal.model.Exam.Quiz;
+import in.codetech.angulareducloud.portal.model.exam.Question;
+import in.codetech.angulareducloud.portal.model.exam.Quiz;
 //Question Service
 public interface QuestionService {
 	public Question addQuestion(Question question);
@@ -12,7 +12,7 @@ public interface QuestionService {
 
 	public Set<Question> getQuestions();
 
-	public Question getQuestion(Long questionId);
+	public Question getQuestion(Long quesId);
 
 	public Set<Question> getQuestionsOfQuiz(Quiz quiz);
 

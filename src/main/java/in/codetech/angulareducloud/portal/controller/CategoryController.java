@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.codetech.angulareducloud.portal.model.Exam.Category;
+import in.codetech.angulareducloud.portal.model.exam.Category;
 import in.codetech.angulareducloud.portal.service.CategoryService;
 
 @RestController

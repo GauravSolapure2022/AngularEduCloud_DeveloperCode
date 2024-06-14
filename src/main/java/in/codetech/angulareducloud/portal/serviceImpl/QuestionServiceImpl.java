@@ -8,8 +8,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import in.codetech.angulareducloud.portal.model.Exam.Question;
-import in.codetech.angulareducloud.portal.model.Exam.Quiz;
+import in.codetech.angulareducloud.portal.model.exam.Question;
+import in.codetech.angulareducloud.portal.model.exam.Quiz;
 import in.codetech.angulareducloud.portal.repository.QuestionRepository;
 import in.codetech.angulareducloud.portal.repository.QuizRepository;
 @Service
@@ -59,9 +59,9 @@ public class QuestionServiceImpl implements in.codetech.angulareducloud.portal.s
 	}
 
 	@Override
-	public Question getQuestion(Long questionId) {
+	public Question getQuestion(Long quesId) {
 		// TODO Auto-generated method stub
-		Object findById = this.questionRepository.findById(questionId);
+		Object findById = this.questionRepository.findById(quesId);
 		return (Question) findById;
 	}
 

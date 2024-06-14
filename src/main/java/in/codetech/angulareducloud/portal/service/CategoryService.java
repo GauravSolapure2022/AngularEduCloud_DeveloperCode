@@ -2,7 +2,7 @@ package in.codetech.angulareducloud.portal.service;
 
 import java.util.Set;
 
-import in.codetech.angulareducloud.portal.model.Exam.Category;
+import in.codetech.angulareducloud.portal.model.exam.Category;
 
 public interface CategoryService {
 	public Category addCategory(Category category);
