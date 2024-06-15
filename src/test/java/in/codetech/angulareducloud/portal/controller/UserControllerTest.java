@@ -54,6 +54,7 @@ public class UserControllerTest {
     private List<User> users;
 
     @BeforeEach
+    //Before use
     void setUp() {
         Role roleAdmin = new Role(1, "ROLE_ADMIN", new HashSet<>());
         Role roleUser = new Role(2, "ROLE_USER", new HashSet<>());
