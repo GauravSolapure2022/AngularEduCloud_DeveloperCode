@@ -71,5 +71,15 @@ public class Category {
 	public void setQuizess(Set<Quiz> quizess) {
 		this.quizess = quizess;
 	}
+
+	public Category(Long cid, String title, String description, Set<Quiz> quizess) {
+		super();
+		this.cid = cid;
+		this.title = title;
+		this.description = description;
+		this.quizess = quizess;
+	}
+	
+	
 	
 }

@@ -19,16 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import in.codetech.angulareducloud.portal.Exception.UserNotFoundException;
 import in.codetech.angulareducloud.portal.config.JwtUtils;
+import in.codetech.angulareducloud.portal.config.UserDetailsServiceImpl;
 import in.codetech.angulareducloud.portal.model.JwtRequest;
 import in.codetech.angulareducloud.portal.model.JwtResponse;
 import in.codetech.angulareducloud.portal.model.User;
-import in.codetech.angulareducloud.portal.serviceImpl.UserDetailsServiceImpl;
 
 
 @RestController
 @ControllerAdvice
 @CrossOrigin("*")
-//auth controller
 public class AuthenticateController {
 	
 	@Autowired

@@ -21,27 +21,40 @@ public class Quiz {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long qId;
-	
+
 	private String title;
-	
+
 	@Column(length = 5000)
 	private String discription;
-	
+
 	private String maxMarks;
-	
+
 	private String numberOfQuestions;
-	
-	private boolean active=false;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
+
+	private boolean active = false;
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Category category;
-	
+
 	@OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonIgnore
 	private Set<Question> questions = new HashSet<>();
-	
+
 	public Quiz() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Quiz(Long qId, String title, String discription, String maxMarks, String numberOfQuestions, boolean active,
+			Category category, Set<Question> questions) {
+		super();
+		this.qId = qId;
+		this.title = title;
+		this.discription = discription;
+		this.maxMarks = maxMarks;
+		this.numberOfQuestions = numberOfQuestions;
+		this.active = active;
+		this.category = category;
+		this.questions = questions;
 	}
 
 	public Long getqId() {
@@ -108,7 +121,4 @@ public class Quiz {
 		this.questions = questions;
 	}
 
-	
-	
-	
 }
